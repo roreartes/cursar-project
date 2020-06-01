@@ -1,8 +1,7 @@
 package ar.com.ada.cursarproject.cursarproject.component.data;
 
-
-import ar.com.ada.cursAR.cursAR.exception.ApiEntityError;
-import ar.com.ada.cursAR.cursAR.exception.BusinessLogicException;
+import ar.com.ada.cursarproject.cursarproject.exception.ApiEntityError;
+import ar.com.ada.cursarproject.cursarproject.exception.BusinessLogicException;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 
