@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 @RequestMapping("/companies")
@@ -18,11 +19,15 @@ public class CompanyController {
 
     @GetMapping({"", "/"})
     public ResponseEntity getAllCompanies(){
-
-        return null;
+        List<CompanyDTO> allCompanies = companyService.findAll();
+        return ResponseEntity.ok(allCompanies);
     }
 
-  
 
+    @PostMapping({"", "/"})
+    public ResponseEntity addNewCompany(@Valid @RequestBody CompanyDTO companyDTO) {
+        CompanyDTO companySaved = companyService.save(companyDTO);
+        return ResponseEntity.ok(companySaved);
+    }
 
 }

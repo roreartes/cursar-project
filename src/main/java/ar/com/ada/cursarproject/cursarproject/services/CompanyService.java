@@ -1,6 +1,7 @@
 package ar.com.ada.cursarproject.cursarproject.services;
 
 import ar.com.ada.cursarproject.cursarproject.model.dto.CompanyDTO;
+import ar.com.ada.cursarproject.cursarproject.model.entity.Company;
 import ar.com.ada.cursarproject.cursarproject.model.mapper.circulardependency.CompanyCycleMapper;
 import ar.com.ada.cursarproject.cursarproject.model.mapper.circulardependency.CycleAvoidingmappingContext;
 import ar.com.ada.cursarproject.cursarproject.model.repository.CompanyRepository;
@@ -22,12 +23,17 @@ public class CompanyService implements Services<CompanyDTO> {
 
     @Override
     public List<CompanyDTO> findAll() {
-        return null;
+        List<Company> companyEntityList = companyRepository.findAll();
+        List<CompanyDTO> companyDTOSList = companyCycleMapper.toDto(companyEntityList, context);
+        return companyDTOSList;
     }
 
     @Override
     public CompanyDTO save(CompanyDTO dto) {
-        return null;
+        Company companyToSave = companyCycleMapper.toEntity(dto, context);
+        Company companySaved = companyRepository.save(companyToSave);
+        CompanyDTO companyDtoSaved = companyCycleMapper.toDto(companySaved, context);
+        return companyDtoSaved;
     }
 
     @Override
