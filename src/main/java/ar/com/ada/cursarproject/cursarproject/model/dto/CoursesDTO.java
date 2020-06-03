@@ -46,31 +46,5 @@ public class CoursesDTO implements Serializable {
     @NotBlank(message = "courseCategory is required")
     private CourseCategoryDTO courseCategory;
 
-    public CoursesDTO(Long id, String name, String description,  String modality, Integer cost,
-                      Integer courseHours, Integer quota, Integer scholarship, CompanyDTO company,
-                      CourseCategoryDTO courseCategory) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
-        this.modality = modality;
-        this.cost = cost;
-        this.courseHours = courseHours;
-        this.quota = quota;
-        this.scholarship = scholarship;
-        this.company = company;
-        this.courseCategory = courseCategory;
-    }
 
-    public CoursesDTO(String name, String description, String modality, Integer cost, Integer courseHours,
-                      Integer quota, Integer scholarship,CompanyDTO company, CourseCategoryDTO courseCategory) {
-        this.name = name;
-        this.description = description;
-        this.modality = modality;
-        this.cost = cost;
-        this.courseHours = courseHours;
-        this.quota = quota;
-        this.scholarship = scholarship;
-        this.company = company;
-        this.courseCategory = courseCategory;
-    }
 }

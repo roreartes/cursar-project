@@ -35,7 +35,7 @@ public class Company {
     @Column(nullable = false, length = 60)
     private String category;
 
-    @Column(nullable = false, columnDefinition = "YEAR")
+    @Column(nullable = false)
     private Year foundationYear;
 
     @Column(nullable = false, length = 20)
