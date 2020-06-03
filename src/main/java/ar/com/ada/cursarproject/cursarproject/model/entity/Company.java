@@ -7,6 +7,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.Year;
 import java.util.Set;
 
 @Getter
@@ -34,8 +35,8 @@ public class Company {
     @Column(nullable = false, length = 60)
     private String category;
 
-    @Column(nullable = false, columnDefinition = "YEAR")
-    private LocalDate foundationYear;
+    @Column(nullable = false)
+    private Year foundationYear;
 
     @Column(nullable = false, length = 20)
     private Integer contactNumber;

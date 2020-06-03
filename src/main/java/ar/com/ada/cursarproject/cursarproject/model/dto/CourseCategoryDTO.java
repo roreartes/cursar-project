@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 @Getter
@@ -13,17 +14,11 @@ import java.io.Serializable;
 @NoArgsConstructor
 public class CourseCategoryDTO implements Serializable {
 
+    @NotNull(message = "id is required")
     private Long id;
-    @NotBlank(message = "name is required")
+
 
     private String name;
 
-    public CourseCategoryDTO(Long id, String name) {
-        this.id = id;
-        this.name = name;
-    }
 
-    public CourseCategoryDTO(String name) {
-        this.name = name;
-    }
 }

@@ -1,8 +1,0 @@
-package ar.com.ada.cursarproject.cursarproject.model.repository;
-
-import ar.com.ada.cursarproject.cursarproject.model.entity.Courses;
-import org.springframework.data.jpa.repository.JpaRepository;
-
-public interface CourseRepository extends JpaRepository<Courses, Long> {
-
-}

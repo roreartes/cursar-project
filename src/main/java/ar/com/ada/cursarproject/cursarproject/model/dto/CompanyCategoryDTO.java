@@ -6,25 +6,19 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 @Getter
 @Setter
 @NoArgsConstructor
 public class CompanyCategoryDTO implements Serializable {
-
+    @NotNull(message = "id is required")
     private Long id;
 
-    @NotBlank(message = "name is required")
+
     private String name;
-
-    public CompanyCategoryDTO(Long id, String name) {
-        this.id = id;
-        this.name = name;
-    }
-
-    public CompanyCategoryDTO(String name) {
-        this.name = name;
-    }
 }
+
+
 
