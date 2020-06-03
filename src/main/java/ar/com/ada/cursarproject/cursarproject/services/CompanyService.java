@@ -1,5 +1,6 @@
 package ar.com.ada.cursarproject.cursarproject.services;
 
+
 import ar.com.ada.cursarproject.cursarproject.component.BusinessLogicExceptionComponent;
 import ar.com.ada.cursarproject.cursarproject.model.dto.CompanyDTO;
 import ar.com.ada.cursarproject.cursarproject.model.entity.Company;
@@ -36,7 +37,7 @@ public class CompanyService implements Services<CompanyDTO> {
     @Override
     public List<CompanyDTO> findAll() {
         List<Company> companyEntityList = companyRepository.findAll();
-        List<CompanyDTO> companyDTOSList = companyCycleMapper.toDto(companyEntityList, context);
+        List<CompanyDTO> companyDTOSList = companyMapper.toDto(companyEntityList, context);
         return companyDTOSList;
     }
 
