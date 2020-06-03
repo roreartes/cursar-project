@@ -1,5 +1,4 @@
 package ar.com.ada.cursarproject.cursarproject.controller;
-
 import ar.com.ada.cursarproject.cursarproject.model.dto.CompanyDTO;
 import ar.com.ada.cursarproject.cursarproject.services.CompanyService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,17 +16,10 @@ public class CompanyController {
     @Qualifier("companyService")
     private CompanyService companyService;
 
-    @GetMapping({"", "/"})
-    public ResponseEntity getAllCompanies() {
-
-        return null;
-    }
-
     @PostMapping({"", "/"})
     public ResponseEntity addNewCompany(@Valid @RequestBody CompanyDTO companyDTO) {
         CompanyDTO companySaved = companyService.save(companyDTO);
         return ResponseEntity.ok(companySaved);
     }
-
 
 }

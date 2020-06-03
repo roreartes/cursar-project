@@ -1,9 +1,9 @@
 package ar.com.ada.cursarproject.cursarproject.advice;
 
 
-import ar.com.ada.cursAR.cursAR.exception.ApiEntityError;
-import ar.com.ada.cursAR.cursAR.exception.ApiErrorsResponseBody;
-import ar.com.ada.cursAR.cursAR.exception.BusinessLogicException;
+import ar.com.ada.cursarproject.cursarproject.exception.ApiEntityError;
+import ar.com.ada.cursarproject.cursarproject.exception.ApiErrorsResponseBody;
+import ar.com.ada.cursarproject.cursarproject.exception.BusinessLogicException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;

@@ -1,4 +1,4 @@
-package ar.com.ada.cursarproject.cursarproject.model.mapper.circulardependency;
+package ar.com.ada.cursarproject.cursarproject.model.mapper;
 
 import org.mapstruct.BeforeMapping;
 import org.mapstruct.MappingTarget;
@@ -7,10 +7,10 @@ import org.mapstruct.TargetType;
 import java.util.IdentityHashMap;
 import java.util.Map;
 
-public class CycleAvoidingmappingContext {
+public class CycleAvoidingMappingContext {
 
     private Map<Object, Object> knownInstances = new IdentityHashMap<>();
-    private static CycleAvoidingmappingContext INSTANCE = null;
+    private static CycleAvoidingMappingContext INSTANCE = null;
 
     @BeforeMapping
     public <T> T getMappedInstance (Object source, @TargetType Class<T> targetType){
@@ -22,9 +22,9 @@ public class CycleAvoidingmappingContext {
         knownInstances.put(source, targetType);
     }
 
-    public static CycleAvoidingmappingContext getInstance() {
+    public static CycleAvoidingMappingContext getInstance() {
         if(INSTANCE == null)
-            INSTANCE = new CycleAvoidingmappingContext();
+            INSTANCE = new CycleAvoidingMappingContext();
 
         return INSTANCE;
     }
