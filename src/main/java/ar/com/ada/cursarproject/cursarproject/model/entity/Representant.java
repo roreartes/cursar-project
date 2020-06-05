@@ -22,12 +22,12 @@ public class Representant {
     @Column(nullable = false, length = 50)
     private String lastname;
 
-@Column(nullable = false, length = 10)
+    @Column(nullable = false, length = 10)
     private Integer dni;
 
     @Column(nullable = false, length = 50)
     private String position;
-//
+    //
     @OneToOne
     @JoinColumn(name = "Company_id", updatable = false, nullable = false)
     private Company company;
