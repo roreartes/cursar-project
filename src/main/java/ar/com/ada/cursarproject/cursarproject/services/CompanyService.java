@@ -47,7 +47,8 @@ public class CompanyService implements Services<CompanyDTO> {
         Long categoryCompanyId = dto.getCompanyCategory().getId();
 
         // se busca la cate en la base de datos
-        CompanyCategory categoryCompany = categoryCompanyRepository
+        CompanyCategory categoryCompany;
+        categoryCompany = categoryCompanyRepository
                 .findById(categoryCompanyId)
                 .orElseThrow(() -> logicExceptionComponent.throwExceptionEntityNotFound("CategoryCompany", categoryCompanyId));
 
