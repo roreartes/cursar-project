@@ -28,7 +28,11 @@ public class RepresentantDTO implements Serializable {
     @NotBlank(message = "position is required")
     private String position;
 
-    @NotBlank(message = "company is required")
+//    @NotBlank(message = "company is required")
+//    private CompanyDTO company;
+
+    @NotNull(message = "companyId is required")
+    private Long companyId;
     private CompanyDTO company;
 
     public RepresentantDTO(Long id, String name, String lastname, Integer dni, String position, CompanyDTO company) {
