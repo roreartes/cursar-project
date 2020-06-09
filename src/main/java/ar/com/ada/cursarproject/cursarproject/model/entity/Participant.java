@@ -29,6 +29,9 @@ public class Participant {
     @Column(nullable = false, length = 50)
     private String address;
 
+    @Column(nullable = false, length =  10)
+    private String typeOfRegistration;
+
     @OneToOne(mappedBy = "participant", cascade = CascadeType.ALL)
     private SocioEconomics socioEconomics;
 
