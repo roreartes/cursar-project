@@ -40,7 +40,7 @@ public class RepresentantService implements Services<RepresentantDTO> {
     @Override
     public RepresentantDTO save(RepresentantDTO dto) {
 
-        Long CompanyId = dto.getCompany().getId();
+        Long CompanyId = dto.getCompanyId();
 
         Company company;
         company = companyRepository.
