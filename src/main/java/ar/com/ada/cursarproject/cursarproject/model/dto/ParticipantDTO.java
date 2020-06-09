@@ -27,18 +27,6 @@ public class ParticipantDTO implements Serializable {
     @NotBlank(message = "address is required")
     private String address;
 
-    public ParticipantDTO(Long id, String name, String lastname, String gender, String address) {
-        this.id = id;
-        this.name = name;
-        this.lastname = lastname;
-        this.gender = gender;
-        this.address = address;
-    }
-
-    public ParticipantDTO(String name, String lastname, String gender, String address) {
-        this.name = name;
-        this.lastname = lastname;
-        this.gender = gender;
-        this.address = address;
-    }
+    @NotBlank(message = "typeOfRegistration is required")
+    private String typeofRegistration;
 }
