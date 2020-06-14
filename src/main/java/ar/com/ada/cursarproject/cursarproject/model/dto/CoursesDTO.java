@@ -1,9 +1,11 @@
 package ar.com.ada.cursarproject.cursarproject.model.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
@@ -32,7 +34,7 @@ public class CoursesDTO implements Serializable {
     @NotNull(message = "courseHours is required")
     private Integer courseHours;
 
-    @Pattern(regexp = "^(0|[1-9][0-9]*)$")
+   // @Pattern(regexp = "^(0|[1-9][0-9]*)$")
     @NotNull(message = "quota is required")
     private Integer quota;
 
@@ -40,11 +42,17 @@ public class CoursesDTO implements Serializable {
     @NotNull(message = "scholarship is required")
     private Integer scholarship;
 
-    @NotBlank(message = "company is required")
+    @NotNull(message = "companyId is required")
+    private Long companyId;
+
+    @Valid
+    @NotNull(message = "courseCategory is required")
+    private CourseCategoryDTO courseCategory;
+
+    @JsonIgnoreProperties(value = "courses")
     private CompanyDTO company;
 
-    @NotBlank(message = "courseCategory is required")
-    private CourseCategoryDTO courseCategory;
+
 
 
 }

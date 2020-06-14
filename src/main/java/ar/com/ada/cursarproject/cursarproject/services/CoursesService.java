@@ -22,7 +22,7 @@ public class CoursesService implements Services<CoursesDTO> {
 
     @Autowired
     @Qualifier("courseRepository")
-    private CourseRepository courseRepository;
+    private CourseRepository     courseRepository;
 
     @Autowired
     @Qualifier("courseCategoryRepository")
@@ -51,7 +51,7 @@ public class CoursesService implements Services<CoursesDTO> {
     @Override
     public CoursesDTO save(CoursesDTO dto) {
         Long courseCategoryId = dto.getCourseCategory().getId();
-        Long companyId = dto.getCompany().getId();
+        Long companyId = dto.getCompanyId();
 
 
         CourseCategory courseCategory;

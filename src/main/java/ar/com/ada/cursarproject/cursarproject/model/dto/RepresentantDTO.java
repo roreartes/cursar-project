@@ -33,6 +33,7 @@ public class RepresentantDTO implements Serializable {
 
     @NotNull(message = "companyId is required")
     private Long companyId;
+
     private CompanyDTO company;
 
     public RepresentantDTO(Long id, String name, String lastname, Integer dni, String position, CompanyDTO company) {
