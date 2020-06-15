@@ -19,8 +19,9 @@ import java.net.URISyntaxException;
 @RequestMapping("/participants")
 public class ParticipantController {
 
-    @Autowired @Qualifier("participantService")
-   private ParticipantService participantService;
+    @Autowired
+    @Qualifier("participantService")
+    private ParticipantService participantService;
 
     @PostMapping({"", "/"})
     private ResponseEntity addNewParticipant(@Valid @RequestBody ParticipantDTO participantDTO) throws URISyntaxException {

@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
 @Service("participantService")
 public class ParticipantService implements Services<ParticipantDTO> {
 
@@ -27,8 +28,6 @@ public class ParticipantService implements Services<ParticipantDTO> {
     private CycleAvoidingMappingContext context;
 
     private ParticipantMapper participantMapper = ParticipantMapper.MAPPER;
-
-
 
 
     @Override
