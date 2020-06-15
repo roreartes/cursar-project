@@ -8,9 +8,10 @@ import ar.com.ada.cursarproject.cursarproject.model.mapper.ParticipantMapper;
 import ar.com.ada.cursarproject.cursarproject.model.repository.ParticipantRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service("participantService")
 public class ParticipantService implements Services<ParticipantDTO> {
 
     @Autowired

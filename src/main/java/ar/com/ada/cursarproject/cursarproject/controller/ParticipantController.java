@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
 import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -20,9 +19,8 @@ import java.net.URISyntaxException;
 @RequestMapping("/participants")
 public class ParticipantController {
 
-    @Autowired
-    @Qualifier("participantService")
-    private ParticipantService participantService;
+    @Autowired @Qualifier("participantService")
+   private ParticipantService participantService;
 
     @PostMapping({"", "/"})
     private ResponseEntity addNewParticipant(@Valid @RequestBody ParticipantDTO participantDTO) throws URISyntaxException {
