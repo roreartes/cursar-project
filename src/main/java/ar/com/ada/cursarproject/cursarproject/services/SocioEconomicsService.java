@@ -27,10 +27,6 @@ public class SocioEconomicsService implements Services<SocioEconomicsDTO> {
     private ParticipantRepository participantRepository;
 
     @Autowired
-    @Qualifier("participant")
-    private Participant participant;
-
-    @Autowired
     @Qualifier("businessLogicExceptionComponent")
     private BusinessLogicExceptionComponent logicExceptionComponent;
 
@@ -48,10 +44,9 @@ public class SocioEconomicsService implements Services<SocioEconomicsDTO> {
 
     @Override
     public SocioEconomicsDTO save(SocioEconomicsDTO dto) {
-        Long participantId = dto.getParticipant().getId();
+        Long participantId = dto.getParticipantId();
 
-        Participant participant;
-       participant =  participantRepository.findById(participantId).orElseThrow(() -> logicExceptionComponent.throwExceptionEntityNotFound("Participant", participantId));
+        Participant participant =  participantRepository.findById(participantId).orElseThrow(() -> logicExceptionComponent.throwExceptionEntityNotFound("Participant", participantId));
 
         SocioEconomics socioEconomicsToSave = socioEconomicsMapper.toEntity(dto, context);
 
