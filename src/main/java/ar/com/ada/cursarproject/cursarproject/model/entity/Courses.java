@@ -37,6 +37,12 @@ public class Courses {
     @Column(nullable = false, length = 3)
     private Integer scholarship;
 
+    @Column()
+    private Integer counterBuy;
+
+    @Column()
+    private Integer counterScholarship;
+
     @ManyToOne
     @JoinColumn(name = "Company_id", nullable = false)
     private Company company;

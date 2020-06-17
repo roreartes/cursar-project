@@ -45,6 +45,10 @@ public class CoursesDTO implements Serializable {
     @NotNull(message = "companyId is required")
     private Long companyId;
 
+    private Integer counterBuy;
+
+    private Integer counterScholarship;
+
     @Valid
     @NotNull(message = "courseCategory is required")
     private CourseCategoryDTO courseCategory;

@@ -29,4 +29,10 @@ public class ParticipantCourse {
 
     @Column(nullable = false)
     private Boolean hasApproved;
+
+    @Column(nullable = false)
+    private Integer percentage;
+
+    @Column(nullable = false)
+    private Boolean hasFinished;
 }
