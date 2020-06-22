@@ -20,19 +20,24 @@ public class ParticipantCourseService {
 
     ParticipantCourseMapper participantCourseMapper = ParticipantCourseMapper.MAPPER;
 
-    @Autowired @Qualifier("cycleAvoidingMappingContext")
+    @Autowired
+    @Qualifier("cycleAvoidingMappingContext")
     private CycleAvoidingMappingContext context;
 
-    @Autowired @Qualifier("businessLogicExceptionComponent")
+    @Autowired
+    @Qualifier("businessLogicExceptionComponent")
     private BusinessLogicExceptionComponent logicExceptionComponent;
 
-    @Autowired @Qualifier("participantRepository")
+    @Autowired
+    @Qualifier("participantRepository")
     private ParticipantRepository participantRepository;
 
-    @Autowired @Qualifier("courseRepository")
+    @Autowired
+    @Qualifier("courseRepository")
     private CourseRepository courseRepository;
 
-    @Autowired @Qualifier("participantCourseRepository")
+    @Autowired
+    @Qualifier("participantCourseRepository")
     private ParticipantCourseRepository participantCourseRepository;
 
 
@@ -87,7 +92,24 @@ public class ParticipantCourseService {
     }
 
     public ParticipantCourseDTO saveCourseApplicationByScholarship(Participant participant, Courses course) {
-        ParticipantCourseDTO courseApplicationByScholarship = null;
+
+
+        ParticipantCourseID id = new ParticipantCourseID();
+        id.setCoursesId(course.getId());
+        id.setParticipantId(participant.getId());
+
+        ParticipantCourse participantCourseToSave = new ParticipantCourse();
+        participantCourseToSave.setId(id);
+        participantCourseToSave.setIsBuy(false);
+        participantCourseToSave.setHasApproved(null);
+        participantCourseToSave.setHasFinished(false);
+
+        ParticipantCourse participantCourseSaved = participantCourseRepository.save(participantCourseToSave);
+
+        ParticipantCourseDTO courseApplicationByScholarship =
+                participantCourseMapper.toDto(participantCourseSaved, context);
+
+
         return courseApplicationByScholarship;
     }
 }
