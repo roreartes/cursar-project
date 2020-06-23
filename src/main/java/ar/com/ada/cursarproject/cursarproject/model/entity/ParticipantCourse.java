@@ -24,9 +24,15 @@ public class ParticipantCourse {
     @MapsId("coursesId")
     private Courses courses;
 
-    @Column(nullable = false)
+    @Column(nullable = false, columnDefinition = "boolean")
     private Boolean isBuy;
 
-    @Column(nullable = false)
+    @Column(columnDefinition = "boolean")
     private Boolean hasApproved;
+
+    @Column()
+    private Integer percentage;
+
+    @Column(columnDefinition = "boolean default false")
+    private Boolean hasFinished;
 }
