@@ -6,14 +6,12 @@ import ar.com.ada.cursarproject.cursarproject.services.CoursesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.List;
 
 
 @RestController
@@ -23,6 +21,13 @@ public class CoursesController {
     @Autowired
     @Qualifier("coursesService")
     private CoursesService coursesService;
+
+    @GetMapping({"", "/"})
+    public ResponseEntity getAllCourses() {
+        List<CoursesDTO> all = coursesService.findAll();
+        return ResponseEntity.ok(all);
+    }
+
 
 
     @PostMapping({"", "/"})
@@ -35,5 +40,10 @@ public class CoursesController {
 
     }
 
+    @DeleteMapping({"/{id}", "/{id}/"})
+    public ResponseEntity deleteCourse(@PathVariable Long id) {
+        coursesService.delete(id);
+        return ResponseEntity.noContent().build();
+    }
 
 }
