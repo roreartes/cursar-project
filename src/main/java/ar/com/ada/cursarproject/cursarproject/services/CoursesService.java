@@ -22,13 +22,14 @@ public class CoursesService implements Services<CoursesDTO> {
 
     @Autowired
     @Qualifier("courseRepository")
-    private CourseRepository     courseRepository;
+    private CourseRepository courseRepository;
 
     @Autowired
     @Qualifier("courseCategoryRepository")
     private CourseCategoryRepository courseCategoryRepository;
 
-    @Autowired @Qualifier("companyRepository")
+    @Autowired
+    @Qualifier("companyRepository")
     private CompanyRepository companyRepository;
 
     @Autowired
@@ -56,7 +57,7 @@ public class CoursesService implements Services<CoursesDTO> {
 
         CourseCategory courseCategory;
         courseCategory = courseCategoryRepository.findById(courseCategoryId).
-                orElseThrow(()-> logicExceptionComponent.throwExceptionEntityNotFound("CourseCategory", courseCategoryId));
+                orElseThrow(() -> logicExceptionComponent.throwExceptionEntityNotFound("CourseCategory", courseCategoryId));
 
         Company company;
         company = companyRepository.findById(companyId).
@@ -77,7 +78,9 @@ public class CoursesService implements Services<CoursesDTO> {
 
     @Override
     public void delete(Long id) {
-
+        Courses course = courseRepository.findById(id).orElseThrow(() ->
+                logicExceptionComponent.throwExceptionEntityNotFound("Course", id));
+        courseRepository.delete(course);
     }
 }
 
