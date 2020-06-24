@@ -4,6 +4,7 @@ package ar.com.ada.cursarproject.cursarproject.model.dto;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.aspectj.bridge.IMessage;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -36,7 +37,6 @@ public class SocioEconomicsDTO implements Serializable {
 
     @NotNull(message = "participantId is required")
     private Long participantId;
-
 
     public SocioEconomicsDTO(Long id, Boolean study, Boolean hasJob, Boolean haveIncome,
                              Boolean familyInCharge, Boolean howMany, ParticipantDTO participant) {

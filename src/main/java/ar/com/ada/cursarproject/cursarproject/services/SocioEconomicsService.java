@@ -36,6 +36,7 @@ public class SocioEconomicsService implements Services<SocioEconomicsDTO> {
 
     private SocioEconomicsMapper socioEconomicsMapper = SocioEconomicsMapper.MAPPER;
 
+
     @Override
     public List<SocioEconomicsDTO> findAll() {
         return null;
