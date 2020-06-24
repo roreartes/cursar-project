@@ -92,7 +92,8 @@ public class ParticipantCourseService {
     }
 
     public ParticipantCourseDTO saveCourseApplicationByScholarship(Participant participant, Courses course) {
-
+        if (participant.getSocioEconomics() == null)
+            throw logicExceptionComponent.throwExceptionEntityNotFound("SocioEconomics", participant.getId());
 
         ParticipantCourseID id = new ParticipantCourseID();
         id.setCoursesId(course.getId());
