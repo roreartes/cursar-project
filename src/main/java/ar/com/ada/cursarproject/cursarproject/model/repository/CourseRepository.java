@@ -17,4 +17,9 @@ public interface CourseRepository extends JpaRepository<Courses, Long> {
     @Query(value = "SELECT * FROM Courses WHERE CourseCategory_id = :categoryId", nativeQuery = true)
     List<Courses> findAllCourseByCategory(@Param("categoryId") Long categoryId);
 
+    @Query(value = "SELECT * FROM Course AS c WHERE c.companyId = :companyId", nativeQuery = true)
+    List<Courses> findAllByCompany(@Param("company") Long companyId);
+
+ /*   @Query(value = "SELECT * FROM Course AS co WHERE co.companyId = :companyId AND c = c.categoryId")
+    List<Courses> findAllByCompanyAndCategory(@Param("companyId") Long companyId, @Param("categoryId") Long categoryId);*/
 }

@@ -21,16 +21,21 @@ public class SearchController {
 
     @GetMapping({"/courses/available", "/courses/available/"})
     public ResponseEntity getAllCourses() {
-        List<CoursesDTO> allCourseAvailable = searchServices.getAllCourseAvailable();
+        List<CoursesDTO> allCourseAvailable = searchServices.getAllCoursesAvailable();
         return ResponseEntity.ok(allCourseAvailable);
     }
 
     // localhost:8080/search/courses/category/1
     @GetMapping({"/courses/category/{categoryId}", "/courses/category/{categoryId}/"})
     public ResponseEntity getAllCoursesByCategory(@PathVariable Long categoryId) {
-        List<CoursesDTO> allCourseAvailable = searchServices.getAllCourseByCategory(categoryId);
+        List<CoursesDTO> allCourseAvailable = searchServices.getAllCoursesByCategory(categoryId);
         return ResponseEntity.ok(allCourseAvailable);
     }
 
+@GetMapping({"/courses/company/{companyId}\", \"/courses/company/{companyId}/"})
+    public ResponseEntity getAllCoursesByCompany(@PathVariable Long companyId){
+    List<CoursesDTO> allCoursesByCompany = searchServices.getAllCoursesByCompany(companyId);
+    return ResponseEntity.ok(allCoursesByCompany);
+    }
     // "/courses/category/{categoryId}/company/{companyId}"
 }

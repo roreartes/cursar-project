@@ -30,13 +30,13 @@ public class SearchServices {
 
     private CourseMapper courseMapper = CourseMapper.MAPPER;
 
-    public List<CoursesDTO> getAllCourseAvailable() {
+    public List<CoursesDTO> getAllCoursesAvailable() {
         List<Courses> allCourseAvailable = courseRepository.findAllCourseAvailable();
         List<CoursesDTO> allCourseDtoAvailable = courseMapper.toDto(allCourseAvailable, context);
         return allCourseDtoAvailable;
     }
 
-    public List<CoursesDTO> getAllCourseByCategory(Long categoryId) {
+    public List<CoursesDTO> getAllCoursesByCategory(Long categoryId) {
         courseCategoryRepository
                 .findById(categoryId)
                 .orElseThrow(() -> logicExceptionComponent.throwExceptionEntityNotFound("CourseCategory", categoryId));
@@ -45,4 +45,16 @@ public class SearchServices {
         List<CoursesDTO> allCourseByCategoryDTO = courseMapper.toDto(allCourseByCategory, context);
         return allCourseByCategoryDTO;
     }
+
+    public List<CoursesDTO> getAllCoursesByCompany(Long companyId){
+        List<Courses> courseByCompany = courseRepository.findAllByCompany(companyId);
+        List<CoursesDTO> courseByCompanyDTO = courseMapper.toDto(courseByCompany, context);
+        return courseByCompanyDTO;
+    }
+
+   /* public List<CoursesDTO> getAllCoursesByCompanyAndCategory(Long companiesId, Long categoryId){
+        List<Courses> coursesByCompanyAndCategory = courseRepository.findAllByCompanyAndCategory(companiesId, categoryId);
+        List<CoursesDTO> coursesByCompanyAndCategoryDTO = courseMapper.toDto(coursesByCompanyAndCategory, context);
+        return coursesByCompanyAndCategoryDTO;
+    }*/
 }
