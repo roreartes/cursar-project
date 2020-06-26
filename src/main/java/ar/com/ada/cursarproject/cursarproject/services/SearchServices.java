@@ -16,16 +16,20 @@ import java.util.List;
 @Service("searchServices")
 public class SearchServices {
 
-    @Autowired @Qualifier("businessLogicExceptionComponent")
+    @Autowired
+    @Qualifier("businessLogicExceptionComponent")
     private BusinessLogicExceptionComponent logicExceptionComponent;
 
-    @Autowired @Qualifier("courseRepository")
+    @Autowired
+    @Qualifier("courseRepository")
     private CourseRepository courseRepository;
 
-    @Autowired @Qualifier("courseCategoryRepository")
+    @Autowired
+    @Qualifier("courseCategoryRepository")
     private CourseCategoryRepository courseCategoryRepository;
 
-    @Autowired @Qualifier("cycleAvoidingMappingContext")
+    @Autowired
+    @Qualifier("cycleAvoidingMappingContext")
     private CycleAvoidingMappingContext context;
 
     private CourseMapper courseMapper = CourseMapper.MAPPER;
@@ -46,15 +50,27 @@ public class SearchServices {
         return allCourseByCategoryDTO;
     }
 
-    public List<CoursesDTO> getAllCoursesByCompany(Long companyId){
+    public List<CoursesDTO> getAllCoursesByCompany(Long companyId) {
         List<Courses> courseByCompany = courseRepository.findAllByCompany(companyId);
         List<CoursesDTO> courseByCompanyDTO = courseMapper.toDto(courseByCompany, context);
         return courseByCompanyDTO;
     }
 
-   /* public List<CoursesDTO> getAllCoursesByCompanyAndCategory(Long companiesId, Long categoryId){
-        List<Courses> coursesByCompanyAndCategory = courseRepository.findAllByCompanyAndCategory(companiesId, categoryId);
+    public List<CoursesDTO> getAllCoursesByCompanyAndCategory(Long companyId, Long categoryId) {
+        List<Courses> coursesByCompanyAndCategory = courseRepository.findAllByCompanyAndCategory(companyId, categoryId);
         List<CoursesDTO> coursesByCompanyAndCategoryDTO = courseMapper.toDto(coursesByCompanyAndCategory, context);
         return coursesByCompanyAndCategoryDTO;
-    }*/
+    }
+
+
+    public List<CoursesDTO> getAllCoursesWithParticipantByStatusProgress(Long participantId, Boolean isFinish) {
+        List<Courses> allCoursesByStatus = courseRepository.findAllCoursesByParticipansStatusProgress(isFinish);
+        List<CoursesDTO> coursesByStatusDTOS = courseMapper.toDto(allCoursesByStatus, context);
+
+        return coursesByStatusDTOS;
+    }
+
 }
+
+
+

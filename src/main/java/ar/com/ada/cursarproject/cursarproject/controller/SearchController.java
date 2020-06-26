@@ -37,5 +37,21 @@ public class SearchController {
     List<CoursesDTO> allCoursesByCompany = searchServices.getAllCoursesByCompany(companyId);
     return ResponseEntity.ok(allCoursesByCompany);
     }
+
+    @GetMapping({"/courses/category/{categoryId}/company/{companyId}",
+            "/courses/category/{categoryId}/company/{companyId}/"})
+    public ResponseEntity getAllCoursesByCompanyAndCategory( @PathVariable Long companyId,
+                                                             @PathVariable Long categoryId){
+        List<CoursesDTO> coursesByCompanyAndCategory = searchServices.getAllCoursesByCompanyAndCategory(companyId, categoryId);
+        return ResponseEntity.ok(coursesByCompanyAndCategory);
+    }
+
+    @GetMapping({"/courses/participant/in-progress/{hasFinish}"})
+    public ResponseEntity getAllCoursesByParticipantStatus ( @PathVariable Long participantId, @PathVariable Boolean isFinish){
+        List<CoursesDTO> allCoursesByStatus = searchServices.getAllCoursesWithParticipantByStatusProgress(participantId, isFinish);
+        return ResponseEntity.ok(allCoursesByStatus);
+    }
+
+
     // "/courses/category/{categoryId}/company/{companyId}"
 }

@@ -29,7 +29,6 @@ public class CoursesController {
     }
 
 
-
     @PostMapping({"", "/"})
     public ResponseEntity addnewCourse(@Valid @RequestBody CoursesDTO coursesDTO) throws URISyntaxException {
         CoursesDTO courseSaved = coursesService.save(coursesDTO);
