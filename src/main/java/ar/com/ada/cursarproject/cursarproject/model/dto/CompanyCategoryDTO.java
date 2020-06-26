@@ -13,6 +13,7 @@ import java.io.Serializable;
 @Setter
 @NoArgsConstructor
 public class CompanyCategoryDTO implements Serializable {
+
     @NotNull(message = "id is required")
     private Long id;
 

@@ -23,5 +23,7 @@ public class CompanyCategory {
     @OneToMany(mappedBy = "companyCategory")
     private List<Company> companies;
 
-
+    public CompanyCategory(String name) {
+        this.name = name;
+    }
 }

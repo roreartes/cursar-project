@@ -22,4 +22,8 @@ public class CourseCategory {
 
     @OneToMany(mappedBy = "courseCategory")
     private List<Courses> courses;
+
+    public CourseCategory(String name) {
+        this.name = name;
+    }
 }

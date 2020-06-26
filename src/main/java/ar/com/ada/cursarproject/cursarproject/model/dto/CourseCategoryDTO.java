@@ -20,5 +20,7 @@ public class CourseCategoryDTO implements Serializable {
 
     private String name;
 
-
+    public CourseCategoryDTO(String name) {
+        this.name = name;
+    }
 }
