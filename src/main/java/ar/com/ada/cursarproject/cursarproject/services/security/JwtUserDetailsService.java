@@ -4,11 +4,11 @@ package ar.com.ada.cursarproject.cursarproject.services.security;
 
 import ar.com.ada.cursarproject.cursarproject.component.security.JwtAuthProvider;
 import ar.com.ada.cursarproject.cursarproject.model.dto.security.JwtUserDetails;
+import ar.com.ada.cursarproject.cursarproject.model.entity.security.User;
 import ar.com.ada.cursarproject.cursarproject.model.repository.security.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
