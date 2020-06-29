@@ -1,6 +1,5 @@
 package ar.com.ada.cursarproject.cursarproject.component.data;
 
-import ar.com.ada.cursarproject.cursarproject.model.entity.CompanyCategory;
 import ar.com.ada.cursarproject.cursarproject.model.entity.CourseCategory;
 import ar.com.ada.cursarproject.cursarproject.model.repository.CourseCategoryRepository;
 import org.apache.logging.log4j.Logger;
@@ -14,6 +13,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
 import java.util.List;
+/*
 
 @Component
 public class CourseCategoryLoader implements ApplicationRunner {
@@ -47,3 +47,4 @@ public class CourseCategoryLoader implements ApplicationRunner {
     }
 
 }
+*/
