@@ -1,9 +1,7 @@
 package ar.com.ada.cursarproject.cursarproject.model.entity;
 
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -13,7 +11,9 @@ import java.util.Set;
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
 @Entity(name = "Company")
+@Builder
 public class Company {
 
     @Id
