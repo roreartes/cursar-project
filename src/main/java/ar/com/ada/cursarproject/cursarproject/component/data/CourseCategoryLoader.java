@@ -2,7 +2,7 @@ package ar.com.ada.cursarproject.cursarproject.component.data;
 
 import ar.com.ada.cursarproject.cursarproject.model.entity.CourseCategory;
 import ar.com.ada.cursarproject.cursarproject.model.repository.CourseCategoryRepository;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -13,12 +13,12 @@ import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
 import java.util.List;
-/*
+
 
 @Component
 public class CourseCategoryLoader implements ApplicationRunner {
-    private static final Logger LOGGER = (Logger) LoggerFactory.getLogger(CourseCategoryLoader.class);
-
+    
+    private static final Logger LOGGER = LoggerFactory.getLogger(CompanyCategoryLoader.class);
     @Autowired
     @Qualifier("courseCategoryRepository")
     private CourseCategoryRepository courseCategoryRepository;
@@ -47,4 +47,4 @@ public class CourseCategoryLoader implements ApplicationRunner {
     }
 
 }
-*/
+

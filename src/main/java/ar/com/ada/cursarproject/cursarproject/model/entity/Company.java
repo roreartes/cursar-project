@@ -1,9 +1,7 @@
 package ar.com.ada.cursarproject.cursarproject.model.entity;
 
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -13,7 +11,9 @@ import java.util.Set;
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
 @Entity(name = "Company")
+
 public class Company {
 
     @Id
@@ -52,4 +52,37 @@ public class Company {
 
     @OneToMany(mappedBy = "company")
     private Set<Courses> courses;
+
+    public Company setName(String name) {
+        this.name = name;
+        return this;
+    }
+    public Company setCuil(Integer cuil) {
+        this.cuil = cuil;
+        return this;
+    }
+    public Company setType(String type) {
+        this.type = type;
+        return this;
+    }
+    public Company setAddress(String address) {
+        this.address = address;
+        return this;
+    }
+    public Company setCategory(String category) {
+        this.category = category;
+        return this;
+    }
+    public Company setFoundationYear(Year foundationYear) {
+        this.foundationYear = foundationYear;
+        return this;
+    }
+    public Company setContactNumber(Integer contactNumber) {
+        this.contactNumber = contactNumber;
+        return this;
+    }
+    public Company setCompanyCategory(CompanyCategory companyCategory) {
+        this.companyCategory = companyCategory;
+        return this;
+    }
 }

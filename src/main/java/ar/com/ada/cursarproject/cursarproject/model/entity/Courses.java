@@ -1,8 +1,6 @@
 package ar.com.ada.cursarproject.cursarproject.model.entity;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -10,7 +8,9 @@ import java.util.Set;
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
 @Entity(name = "Courses")
+
 public class Courses {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
