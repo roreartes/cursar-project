@@ -23,15 +23,14 @@ class CompanyRepositoryTest {
     public void whenSaveThenReturnCompanyId(){
 
 
-        Company company = new Company().builder()
-                .name("IBM")
-                .cuil(233484736)
-                .type("SA")
-                .address("Cabildo 80")
-                .category("Tecnologia")
-                .foundationYear (Year.of(1993))
-                .contactNumber(1145406678)
-                .build();
+        Company company = new Company()
+                .setName("IBM")
+                .setCuil(233484736)
+                .setType("SA")
+                .setAddress("Cabildo 80")
+                .setCategory("Tecnologia")
+                .setFoundationYear(Year.of(1993))
+                .setContactNumber(1145406678);
 
         Company saved = companyRepository.save(company);
 
